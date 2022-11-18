@@ -5,7 +5,7 @@
  * :copyright: (c) 2022, Tungee
  * :date created: 2022-11-06 22:23:29
  * :last editor: 张德志
- * :date last edited: 2022-11-18 12:50:18
+ * :date last edited: 2022-11-18 20:51:35
  */
 'use strict';
 
@@ -14,11 +14,13 @@ const { Controller } = require('egg');
 class AdminController extends Controller {
   // 获取管理员列表
   async list() {
+    const total = await this.ctx.model.Manager.count();
     const list = await this.ctx.model.Manager.find();
     this.ctx.body = {
-      status: 200,
+      code: 200,
       msg: '获取管理员成功',
       data: list,
+      total,
       success: true,
     };
   }
@@ -57,7 +59,8 @@ class AdminController extends Controller {
       success: true,
       data: {
         name: 'Serati Ma',
-        avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+        avatar:
+          'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
         userid: '00000001',
         email: 'antdesign@alipay.com',
         signature: '海纳百川，有容乃大',
@@ -111,4 +114,3 @@ class AdminController extends Controller {
 }
 
 module.exports = AdminController;
-
