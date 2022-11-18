@@ -5,7 +5,7 @@
  * :copyright: (c) 2022, Tungee
  * :date created: 2022-11-06 22:23:29
  * :last editor: 张德志
- * :date last edited: 2022-11-18 22:48:00
+ * :date last edited: 2022-11-18 23:47:06
  */
 'use strict';
 
@@ -50,7 +50,28 @@ class AdminController extends Controller {
       success: true,
       data: result,
     };
+  }
 
+  // 删除用户
+  async delete() {
+    const ctx = this.ctx;
+    const body = ctx.request.body;
+    const result = await ctx.model.Manager.deleteOne({ _id: body.id });
+
+    if (result.length <= 0) {
+      ctx.status = 400;
+      ctx.body = {
+        code: 400,
+        msg: '删除用户失败',
+        success: false,
+      };
+      return;
+    }
+    ctx.body = {
+      code: 200,
+      msg: '删除成功',
+      success: true,
+    };
   }
 
   // 管理员登录
