@@ -5,7 +5,7 @@
  * :copyright: (c) 2022, Tungee
  * :date created: 2022-11-06 22:21:28
  * :last editor: 张德志
- * :date last edited: 2022-11-06 22:27:10
+ * :date last edited: 2022-11-18 22:44:33
  */
 'use strict';
 module.exports = app => {
@@ -17,6 +17,10 @@ module.exports = app => {
     password: { type: String },
     mobile: { type: String },
     email: { type: String },
+    sex: {
+      type: Number,
+      default: 0,
+    },
     status: {
       type: Number,
       default: 1,
@@ -25,7 +29,6 @@ module.exports = app => {
       type: Number,
       default: d.getTime(),
     },
-
   });
   return mongoose.model('Manager', ManagerSchema, 'manager');
 };
