@@ -5,7 +5,7 @@
  * :copyright: (c) 2022, Tungee
  * :date created: 2022-11-06 22:19:58
  * :last editor: 张德志
- * :date last edited: 2022-11-18 23:39:47
+ * :date last edited: 2022-11-19 09:00:48
  */
 'use strict';
 
@@ -23,6 +23,8 @@ module.exports = app => {
   router.post(`${baseURL}/login/account`, controller.manager.account);
 
   router.get(`${baseURL}/currentUser`, controller.manager.currentUser);
+
+  // 用户列表
   //------------------------------------------------------------------
   // 获取用户列表
   router.post(`${baseURL}/manager/list`, controller.manager.list);
@@ -31,5 +33,10 @@ module.exports = app => {
   // 删除管理员
   router.delete(`${baseURL}/manager/delete`, controller.manager.delete);
   //------------------------------------------------------------------
+
+  // 轮播图
+  //-----------------------------------------------------------------
+  router.post(`${baseURL}/banner/list`, controller.banner.list);
+
 
 };

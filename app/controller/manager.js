@@ -5,7 +5,7 @@
  * :copyright: (c) 2022, Tungee
  * :date created: 2022-11-06 22:23:29
  * :last editor: 张德志
- * :date last edited: 2022-11-18 23:47:06
+ * :date last edited: 2022-11-19 08:03:43
  */
 'use strict';
 
@@ -14,9 +14,11 @@ const { Controller } = require('egg');
 class AdminController extends Controller {
   // 获取管理员列表
   async list() {
-    const total = await this.ctx.model.Manager.count();
-    const list = await this.ctx.model.Manager.find();
-    this.ctx.body = {
+    const ctx = this.ctx;
+    const body = ctx.request.body;
+    const total = await ctx.model.Manager.count();
+    const list = await ctx.model.Manager.find(body);
+    ctx.body = {
       code: 200,
       msg: '获取管理员成功',
       data: list,
