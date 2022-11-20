@@ -1,11 +1,11 @@
 /*
- * :file description: 
+ * :file description:
  * :name: /m-xiaozhicloud/app/model/banner.js
  * :author: 张德志
  * :copyright: (c) 2022, Tungee
  * :date created: 2022-11-19 09:01:10
  * :last editor: 张德志
- * :date last edited: 2022-11-19 09:02:39
+ * :date last edited: 2022-11-20 09:10:20
  */
 /*
  * :file description:
@@ -24,15 +24,10 @@ module.exports = app => {
   const BannerSchema = Schema({
     name: { type: String }, // 图片名称
     url: { type: String }, // 图片链接
-    mobile: { type: String },
-    email: { type: String },
-    sex: {
+    sort: { type: String }, // 排序
+    position: { type: Number }, // 位置1top,2body,3bottom
+    update_time: {
       type: Number,
-      default: 0,
-    },
-    status: {
-      type: Number,
-      default: 1,
     },
     add_time: {
       type: Number,
