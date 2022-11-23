@@ -5,7 +5,7 @@
  * :copyright: (c) 2022, Tungee
  * :date created: 2022-11-06 22:19:58
  * :last editor: 张德志
- * :date last edited: 2022-11-19 09:00:48
+ * :date last edited: 2022-11-23 11:25:58
  */
 'use strict';
 
@@ -37,6 +37,12 @@ module.exports = app => {
   // 轮播图
   //-----------------------------------------------------------------
   router.post(`${baseURL}/banner/list`, controller.banner.list);
+
+
+  // 网站建设
+  //-----------------------------------------------------------------
+  router.post(`${baseURL}/website/list`, controller.website.list);
+  router.post(`${baseURL}/website/list`,controller.website.add);
 
 
 };
