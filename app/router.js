@@ -34,7 +34,7 @@ module.exports = (app) => {
 
   // 网站管理
   router.post(`${APIV1}/website/list`, controller.website.list);
-  router.post(`${APIV1}/website/list`, controller.website.add);
+  router.post(`${APIV1}/website/add`, controller.website.add);
 
   
   // 办公软件

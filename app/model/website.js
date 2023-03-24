@@ -13,14 +13,14 @@ module.exports = (app) => {
   const Schema = mongoose.Schema;
   const d = new Date();
   const WebsiteSchema = Schema({
-    title: { type: String },
-    url: { type: String },
-    link: { type: String },
-    type: { type: String },
+    title: { type: String }, // 标题
+    url: { type: String }, // 图片地址
+    link: { type: String }, // 边接
+    type: { type: String }, // 类型
     description: { type: String },
     view: { type: Number, default: 1 },
     review: { type: Number, default: 1 },
-    status: { type: Number, default: 1 },
+    status: { type: String, default: 'enable' }, // 状态
     add_time: {
       type: Number,
       default: d.getTime(),

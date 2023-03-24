@@ -9,13 +9,23 @@
  */
 'use strict';
 
-const { Controller } = require('egg');
+const {
+  Controller
+} = require('egg');
 
 class WebsiteController extends Controller {
-  
+
   // 添加数据
   async add() {
     const ctx = this.ctx;
+    const manager = new ctx.model.Website(ctx.request.body);
+    await manager.save();
+    ctx.body = {
+      stat: 1,
+      msg: '添加用户成功',
+      success: true,
+      data: [],
+    };
 
   }
 
@@ -25,7 +35,7 @@ class WebsiteController extends Controller {
     const body = ctx.request.body;
     const result = await ctx.model.Website.find(body);
     ctx.body = {
-      code: 200,
+      stat: 1,
       msg: '获取网站成功',
       success: true,
       data: result,
