@@ -7,8 +7,8 @@
  * :last editor: 张德志
  * :date last edited: 2022-11-18 22:44:33
  */
-'use strict';
-module.exports = app => {
+"use strict";
+module.exports = (app) => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
   const d = new Date();
@@ -16,6 +16,7 @@ module.exports = app => {
     title: { type: String },
     url: { type: String },
     link: { type: String },
+    type: { type: String },
     description: { type: String },
     view: { type: Number, default: 1 },
     review: { type: Number, default: 1 },
@@ -25,5 +26,5 @@ module.exports = app => {
       default: d.getTime(),
     },
   });
-  return mongoose.model('Website', WebsiteSchema, 'Website');
+  return mongoose.model("Website", WebsiteSchema, "Website");
 };

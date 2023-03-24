@@ -11,12 +11,8 @@
 
 const { Controller } = require('egg');
 
-class HomeController extends Controller {
-  async index() {
-    const { ctx } = this;
-    ctx.body = 'hi, egg';
-  }
-
+class WebsiteController extends Controller {
+  
   // 添加数据
   async add() {
     const ctx = this.ctx;
@@ -48,7 +44,6 @@ class HomeController extends Controller {
       data: null,
     };
   }
-
 }
 
-module.exports = HomeController;
+module.exports = WebsiteController;
