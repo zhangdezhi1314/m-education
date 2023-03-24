@@ -15,34 +15,48 @@
 module.exports = app => {
   const { router, controller } = app;
   // 公共url
-  const baseURL = '/api/v1';
+  const APIV1 = '/api/v1';
 
   // 用户登录
-  router.post('/api/v1/manager/login', controller.manager.login);
+  router.post(`${APIV1}/manager/login`, controller.manager.login);
 
-  router.post(`${baseURL}/login/account`, controller.manager.account);
+  router.post(`${APIV1}/login/account`, controller.manager.account);
 
-  router.get(`${baseURL}/currentUser`, controller.manager.currentUser);
+  router.get(`${APIV1}/currentUser`, controller.manager.currentUser);
+
+
 
   // 用户列表
-  //------------------------------------------------------------------
-  // 获取用户列表
-  router.post(`${baseURL}/manager/list`, controller.manager.list);
-  // 增加用户
-  router.post(`${baseURL}/manager/add`, controller.manager.add);
-  // 删除管理员
-  router.delete(`${baseURL}/manager/delete`, controller.manager.delete);
-  //------------------------------------------------------------------
-
-  // 轮播图
-  //-----------------------------------------------------------------
-  router.post(`${baseURL}/banner/list`, controller.banner.list);
+  router.post(`${APIV1}/manager/list`, controller.manager.list);
+  router.post(`${APIV1}/manager/add`, controller.manager.add);
+  router.delete(`${APIV1}/manager/delete`, controller.manager.delete);
 
 
-  // 网站建设
-  //-----------------------------------------------------------------
-  router.post(`${baseURL}/website/list`, controller.website.list);
-  router.post(`${baseURL}/website/list`,controller.website.add);
+  // 轮播图管理
+  router.post(`${APIV1}/banner/list`, controller.banner.list);
+
+  
+
+
+  // 网站管理
+  router.post(`${APIV1}/website/list`, controller.website.list);
+  router.post(`${APIV1}/website/list`,controller.website.add);
+
+  // 视频管理
+  router.get('')
+
+  // 办公软件
+  router.get(`$`)
+
+  // 设计资源
+
+  // 软件工具
+
+  // 标签管理
+
+
+
+  
 
 
 };
