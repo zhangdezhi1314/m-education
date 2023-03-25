@@ -41,17 +41,14 @@ class WebsiteController extends Controller {
 
   // 获取所有网站列表
   async list() {
-    const ctx = this.ctx;
+
+    const { ctx, service } = this
+    // 组装参数
     const body = ctx.request.body;
-    const total = await ctx.model.Website.find().count();
-    const result = await ctx.model.Website.find(body);
-    ctx.body = {
-      stat: 1,
-      total,
-      msg: '获取网站成功',
-      success: true,
-      data: result,
-    };
+    // 调用 Service 进行业务处理
+    const res = await service.website.list(body)
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ctx, res})
   }
 
   // 删除网站

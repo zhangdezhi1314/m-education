@@ -36,7 +36,7 @@ module.exports = (app) => {
   router.post(`${APIV1}/website/list`, controller.website.list);
   router.post(`${APIV1}/website/add`, controller.website.add);
   router.put(`${APIV1}/website/edit`,controller.website.edit);
-
+  router.delete(`${APIV1}/website/delete`,controller.website.delete);
   
   // 办公软件
   router.get(`${APIV1}/office-software/list`, controller.office.list);
