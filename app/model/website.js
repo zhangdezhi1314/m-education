@@ -26,5 +26,5 @@ module.exports = (app) => {
       default: d.getTime(),
     },
   });
-  return mongoose.model("Website", WebsiteSchema, "Website");
+  return mongoose.model("Website", WebsiteSchema, "website");
 };

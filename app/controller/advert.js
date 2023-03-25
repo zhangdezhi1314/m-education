@@ -18,17 +18,17 @@ class HomeController extends Controller {
   }
 
   async list() {
-    const ctx = this.ctx;
-    const body = ctx.request.body;
-    const total = await ctx.model.Banner.count();
-    const result = await this.ctx.model.Banner.find(body);
-    ctx.body = {
-      msg: '获取轮播图成功',
-      total,
-      data: result,
-      success: true,
-      code: 200,
-    };
+    // const ctx = this.ctx;
+    // const body = ctx.request.body;
+    // const total = await ctx.model.Banner.count();
+    // const result = await this.ctx.model.Banner.find(body);
+    // ctx.body = {
+    //   msg: '获取轮播图成功',
+    //   total,
+    //   data: result,
+    //   success: true,
+    //   code: 200,
+    // };
   }
 }
 

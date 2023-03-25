@@ -30,8 +30,8 @@ module.exports = (app) => {
   router.put(`${APIV1}/manager/edit`, controller.manager.edit);
   router.delete(`${APIV1}/manager/delete`, controller.manager.delete);
 
-  // 轮播图管理
-  router.post(`${APIV1}/banner/list`, controller.banner.list);
+  // 广告管理
+  router.post(`${APIV1}/advert/list`, controller.advert.list);
 
   // 网站管理
   router.post(`${APIV1}/website/list`, controller.website.list);

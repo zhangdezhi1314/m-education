@@ -26,5 +26,5 @@ module.exports = (app) => {
       default: d.getTime(),
     },
   });
-  return mongoose.model("Office", OfficeSchema, "Office");
+  return mongoose.model("Office", OfficeSchema, "office");
 };

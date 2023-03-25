@@ -26,5 +26,5 @@ module.exports = (app) => {
       default: d.getTime(),
     },
   });
-  return mongoose.model("Tool", ToolSchema, "Tool");
+  return mongoose.model("Tool", ToolSchema, "tool");
 };

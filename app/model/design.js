@@ -26,5 +26,5 @@ module.exports = (app) => {
       default: d.getTime(),
     },
   });
-  return mongoose.model("Design", DesignSchema, "Design");
+  return mongoose.model("Design", DesignSchema, "design");
 };

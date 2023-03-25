@@ -22,10 +22,11 @@ module.exports = app => {
   const Schema = mongoose.Schema;
   const d = new Date();
   const BannerSchema = Schema({
-    name: { type: String }, // 图片名称
+    title: { type: String }, // 图片名称
+    link: { type: String }, // 图片链接
     url: { type: String }, // 图片链接
-    sort: { type: String }, // 排序
-    position: { type: Number }, // 位置1top,2body,3bottom
+    status: { type: String }, // 排序
+    position: { type: Number }, 
     update_time: {
       type: Number,
     },
@@ -34,5 +35,5 @@ module.exports = app => {
       default: d.getTime(),
     },
   });
-  return mongoose.model('Banner', BannerSchema, 'banner');
+  return mongoose.model('Advert', BannerSchema, 'advert');
 };
