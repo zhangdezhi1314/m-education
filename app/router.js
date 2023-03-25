@@ -41,6 +41,13 @@ module.exports = (app) => {
   // 办公软件
   router.get(`${APIV1}/office-software/list`, controller.office.list);
 
+
+  // 网站管理
+  router.post(`${APIV1}/office/list`, controller.office.list);
+  router.post(`${APIV1}/office/add`, controller.office.add);
+  router.put(`${APIV1}/office/edit`,controller.office.edit);
+  router.delete(`${APIV1}/office/delete`,controller.office.delete);
+
   // 设计资源
 
   // 软件工具
