@@ -31,12 +31,9 @@ class WebsiteController extends Controller {
 
   async edit() {
     const ctx = this.ctx;
-    ctx.body = {
-      stat:1,
-      msg: '更新网站成功',
-      success: true,
-      data: null,
-    }
+    const body = ctx.request.body;
+    await this.service.website.update(body._id,body);
+    ctx.helper.success({ctx,res:[],msg:'编辑网站成功'})
   }
 
   // 获取所有网站列表

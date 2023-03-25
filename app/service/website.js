@@ -25,11 +25,11 @@ class WebsiteService extends Service {
   // update======================================================================================================>
   async update(_id, payload) {
     const { ctx, service } = this;
-    const user = await ctx.service.user.find(_id);
+    const user = await ctx.model.Website.findById(_id);
     if (!user) {
       ctx.throw(404, "user not found");
     }
-    return ctx.model.User.findByIdAndUpdate(_id, payload);
+    return ctx.model.Website.findByIdAndUpdate(_id, payload);
   }
 
   // show======================================================================================================>
@@ -72,7 +72,7 @@ class WebsiteService extends Service {
   }
 
   async findByIdAndUpdate(id, values) {
-    return this.ctx.model.User.findByIdAndUpdate(id, values);
+    return this.ctx.model.Website.findByIdAndUpdate(id, values);
   }
 }
 
