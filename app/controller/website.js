@@ -29,13 +29,25 @@ class WebsiteController extends Controller {
 
   }
 
+  async edit() {
+    const ctx = this.ctx;
+    ctx.body = {
+      stat:1,
+      msg: '更新网站成功',
+      success: true,
+      data: null,
+    }
+  }
+
   // 获取所有网站列表
   async list() {
     const ctx = this.ctx;
     const body = ctx.request.body;
+    const total = await ctx.model.Website.find().count();
     const result = await ctx.model.Website.find(body);
     ctx.body = {
       stat: 1,
+      total,
       msg: '获取网站成功',
       success: true,
       data: result,
