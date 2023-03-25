@@ -15,7 +15,7 @@ module.exports = app => {
   const ManagerSchema = Schema({
     username: { type: String },
     password: { type: String },
-    mobile: { type: String },
+    phone: { type: String },
     email: { type: String },
     sex: {
       type: Number,

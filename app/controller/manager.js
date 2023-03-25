@@ -89,11 +89,14 @@ class AdminController extends Controller {
     };
   }
   async account() {
-    const ctx = this.ctx;
-    ctx.body = {
-      status: 200,
-      currentAuthority: 'admin',
-    };
+    const {ctx} = this;
+    const body = ctx.request.body;
+    const result = await ctx.service.manager.account(body);
+    if(result.length <=0) {
+      ctx.helper.fail({ctx,msg:'用户名或密码错误请重新输入'});
+      return
+    }
+    ctx.helper.success({ctx,msg:'登录成功',data:{_id:result._id}})
   }
   // 管理员登录
   async currentUser() {

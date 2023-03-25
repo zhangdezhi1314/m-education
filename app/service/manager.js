@@ -8,6 +8,12 @@ class WebsiteService extends Service {
     return ctx.model.Manager.create(payload);
   }
 
+  async account(payload) {
+    const { ctx } = this;
+    console.log(payload)
+    return await ctx.model.Manager.find(payload);
+  }
+
 
   async destroy(_id) {
     const { ctx } = this;

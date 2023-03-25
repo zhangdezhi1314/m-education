@@ -4,6 +4,8 @@ exports.success = ({ ctx, res = null, msg = "请求成功" }) => {
     stat: 1,
     result: res,
     msg,
+    success:true,
+    currentAuthority: 'admin',
   };
   ctx.status = 200;
 };
@@ -12,6 +14,7 @@ exports.fail = ({ ctx, res = null,code=400, msg = "请求失败" }) => {
   ctx.body = {
     stat: 0,
     code:code,
+    success:false,
     result: res,
     msg,
   };
