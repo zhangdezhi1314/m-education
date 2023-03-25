@@ -36,6 +36,10 @@ class WebsiteService extends Service {
     const { pageIndex, pageSize, filter } = payload;
     const regex = new RegExp(filter.title);
     const skip = this.ctx.helper.skip(pageIndex, pageSize);
+    const totel = await this.ctx.model.Website.find({
+      ...filter,
+      title: { $regex: regex },
+    }).count().exec()
     const result = await this.ctx.model.Website.find({
       ...filter,
       title: { $regex: regex },
@@ -44,7 +48,7 @@ class WebsiteService extends Service {
       .limit(Number(pageSize)).sort({ add_time: -1 })
       .exec();
 
-    return { total: 100, data: result };
+    return { total: totel, data: result };
   }
 
 }
