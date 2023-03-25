@@ -16,8 +16,7 @@ class WebsiteController extends Controller {
   async add() {
     const ctx = this.ctx;
     const body = ctx.request.body;
-    const website = new ctx.model.Website(body);
-    await website.save();
+    await this.service.website.create(body);
     ctx.helper.success({ ctx, res:'新增网站成功' });
   }
 

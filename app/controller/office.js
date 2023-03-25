@@ -7,16 +7,16 @@ class WebsiteController extends Controller {
   async add() {
     const ctx = this.ctx;
     const body = ctx.request.body;
-    const website = new ctx.model.Website(body);
-    await website.save();
-    ctx.helper.success({ ctx, res: "新增网站成功" });
+    await this.service.office.create(body);
+    ctx.helper.success({ ctx, res: "新增办公文档成功" });
+ 
   }
 
   async edit() {
     const ctx = this.ctx;
     const body = ctx.request.body;
     await this.service.office.update(body._id, body);
-    ctx.helper.success({ ctx, res: [], msg: "编辑网站成功" });
+    ctx.helper.success({ ctx, res: [], msg: "编辑办公文档成功" });
   }
 
   // 获取所有网站列表
@@ -35,7 +35,7 @@ class WebsiteController extends Controller {
     const ctx = this.ctx;
     const body = ctx.request.body;
     await this.service.office.destroy(body._id);
-    ctx.helper.success({ ctx, res: "删除网站成功" });
+    ctx.helper.success({ ctx, res: "删除办公文档成功" });
   }
 }
 
