@@ -28,13 +28,14 @@ module.exports = appInfo => {
   config.middleware = [];
 
   // 配置线上地址
-  // config.cluster = {
-  //   listen: {
-  //     path: '',
-  //     port: 8081,
-  //     hostname: '0.0.0.0',
-  //   },
-  // };
+  // 配置线上地址
+  config.cluster = {
+    listen: {
+      path: '',
+      port: 8081,
+      hostname: '0.0.0.0',
+    },
+  };
   // 配置数据库连接
   config.mongoose = {
     client: {
