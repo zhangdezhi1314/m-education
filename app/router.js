@@ -49,8 +49,19 @@ module.exports = (app) => {
   router.delete(`${APIV1}/office/delete`,controller.office.delete);
 
   // 设计资源
+  router.post(`${APIV1}/design/list`, controller.design.list);
+  router.post(`${APIV1}/design/add`, controller.design.add);
+  router.put(`${APIV1}/design/edit`,controller.design.edit);
+  router.delete(`${APIV1}/design/delete`,controller.design.delete);
+
 
   // 软件工具
+  router.post(`${APIV1}/tool/list`, controller.tool.list);
+  router.post(`${APIV1}/tool/add`, controller.tool.add);
+  router.put(`${APIV1}/tool/edit`,controller.tool.edit);
+  router.delete(`${APIV1}/tool/delete`,controller.tool.delete);
+
+
 
   // 标签管理
 };
