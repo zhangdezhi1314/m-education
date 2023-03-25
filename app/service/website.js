@@ -1,7 +1,6 @@
 const Service = require("egg").Service;
 
 class WebsiteService extends Service {
-  // create======================================================================================================>
   async create(payload) {
     const { ctx, service } = this;
     const role = await service.role.show(payload.role);
@@ -12,36 +11,27 @@ class WebsiteService extends Service {
     return ctx.model.User.create(payload);
   }
 
-  // destroy======================================================================================================>
+
   async destroy(_id) {
-    const { ctx, service } = this;
-    const user = await ctx.service.user.find(_id);
-    if (!user) {
-      ctx.throw(404, "user not found");
+    const { ctx } = this;
+    const website = await ctx.model.Website.findById(_id);
+    
+    if (!website) {
+      ctx.throw(400, "删除的数据不存在");
     }
-    return ctx.model.User.findByIdAndRemove(_id);
+    return ctx.model.Website.findByIdAndRemove(_id);
   }
 
-  // update======================================================================================================>
   async update(_id, payload) {
-    const { ctx, service } = this;
-    const user = await ctx.model.Website.findById(_id);
-    if (!user) {
-      ctx.throw(404, "user not found");
+    const { ctx } = this;
+    const website = await ctx.model.Website.findById(_id);
+    if (!website) {
+      ctx.throw(400, "更新的数据不存在");
     }
     return ctx.model.Website.findByIdAndUpdate(_id, payload);
   }
 
-  // show======================================================================================================>
-  async show(_id) {
-    const user = await this.ctx.service.user.find(_id);
-    if (!user) {
-      this.ctx.throw(404, "user not found");
-    }
-    return this.ctx.model.User.findById(_id).populate("role");
-  }
-
-  // index======================================================================================================>
+  // 获取列表数据
   async list(payload) {
     const { pageIndex, pageSize, filter } = payload;
     const regex = new RegExp(filter.title);
@@ -58,22 +48,6 @@ class WebsiteService extends Service {
     return { total: count, data: result };
   }
 
-  async removes(payload) {
-    return this.ctx.model.User.remove({ _id: { $in: payload } });
-  }
-
-  // Commons======================================================================================================>
-  async findByMobile(mobile) {
-    return this.ctx.model.User.findOne({ mobile: mobile });
-  }
-
-  async find(id) {
-    return this.ctx.model.User.findById(id);
-  }
-
-  async findByIdAndUpdate(id, values) {
-    return this.ctx.model.Website.findByIdAndUpdate(id, values);
-  }
 }
 
 module.exports = WebsiteService;
