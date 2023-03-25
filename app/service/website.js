@@ -15,7 +15,7 @@ class WebsiteService extends Service {
   async destroy(_id) {
     const { ctx } = this;
     const website = await ctx.model.Website.findById(_id);
-    
+
     if (!website) {
       ctx.throw(400, "删除的数据不存在");
     }
@@ -42,7 +42,7 @@ class WebsiteService extends Service {
       title: { $regex: regex },
     })
       .skip(skip)
-      .limit(Number(pageSize))
+      .limit(Number(pageSize)).sort({ add_time: -1 })
       .exec();
 
     return { total: count, data: result };
