@@ -27,6 +27,7 @@ module.exports = (app) => {
   // 用户列表
   router.post(`${APIV1}/manager/list`, controller.manager.list);
   router.post(`${APIV1}/manager/add`, controller.manager.add);
+  router.put(`${APIV1}/manager/edit`, controller.manager.edit);
   router.delete(`${APIV1}/manager/delete`, controller.manager.delete);
 
   // 轮播图管理
@@ -35,33 +36,26 @@ module.exports = (app) => {
   // 网站管理
   router.post(`${APIV1}/website/list`, controller.website.list);
   router.post(`${APIV1}/website/add`, controller.website.add);
-  router.put(`${APIV1}/website/edit`,controller.website.edit);
-  router.delete(`${APIV1}/website/delete`,controller.website.delete);
-  
-  // 办公软件
-  router.get(`${APIV1}/office-software/list`, controller.office.list);
+  router.put(`${APIV1}/website/edit`, controller.website.edit);
+  router.delete(`${APIV1}/website/delete`, controller.website.delete);
 
-
-  // 网站管理
+  //  办公软件
   router.post(`${APIV1}/office/list`, controller.office.list);
   router.post(`${APIV1}/office/add`, controller.office.add);
-  router.put(`${APIV1}/office/edit`,controller.office.edit);
-  router.delete(`${APIV1}/office/delete`,controller.office.delete);
+  router.put(`${APIV1}/office/edit`, controller.office.edit);
+  router.delete(`${APIV1}/office/delete`, controller.office.delete);
 
   // 设计资源
   router.post(`${APIV1}/design/list`, controller.design.list);
   router.post(`${APIV1}/design/add`, controller.design.add);
-  router.put(`${APIV1}/design/edit`,controller.design.edit);
-  router.delete(`${APIV1}/design/delete`,controller.design.delete);
-
+  router.put(`${APIV1}/design/edit`, controller.design.edit);
+  router.delete(`${APIV1}/design/delete`, controller.design.delete);
 
   // 软件工具
   router.post(`${APIV1}/tool/list`, controller.tool.list);
   router.post(`${APIV1}/tool/add`, controller.tool.add);
-  router.put(`${APIV1}/tool/edit`,controller.tool.edit);
-  router.delete(`${APIV1}/tool/delete`,controller.tool.delete);
-
-
+  router.put(`${APIV1}/tool/edit`, controller.tool.edit);
+  router.delete(`${APIV1}/tool/delete`, controller.tool.delete);
 
   // 标签管理
 };

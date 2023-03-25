@@ -31,27 +31,19 @@ class AdminController extends Controller {
   async add() {
     const ctx = this.ctx;
     const body = ctx.request.body;
-
-    // 选判断手机号是否存在
-    const result = await ctx.model.Manager.find({ mobile: body.mobile });
-
-    if (result.length > 0) {
-      ctx.status = 400;
-      ctx.body = {
-        code: 400,
-        msg: `手机号${body.mobile}已存在`,
-        success: false,
-      };
+    const result = await this.service.manager.create(body);
+    if(!result) {
+      ctx.helper.fail({ctx,msg:'当前会员已存在'});
       return;
     }
-    const manager = new ctx.model.Manager(body);
-    await manager.save();
-    ctx.body = {
-      code: 200,
-      msg: '添加用户成功',
-      success: true,
-      data: result,
-    };
+    ctx.helper.success({ctx,msg:'增加会员成功'});
+  }
+
+  async edit() {
+    const ctx = this.ctx;
+    const body = ctx.request.body;
+    await this.service.manager.update(body._id, body);
+    ctx.helper.success({ ctx, res: [], msg: "修改会员成功" });
   }
 
   // 删除用户

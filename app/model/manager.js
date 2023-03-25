@@ -22,8 +22,11 @@ module.exports = app => {
       default: 0,
     },
     status: {
-      type: Number,
+      type: String,
       default: 1,
+    },
+    update_time:{
+      type: Number,
     },
     add_time: {
       type: Number,
