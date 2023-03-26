@@ -1,7 +1,7 @@
 {
-  "name": "m-xiaozhicloud",
+  "name": "m-educatio",
   "version": "1.0.0",
-  "description": "晓智云后台服务",
+  "description": "荣屿后台服务",
   "private": true,
   "egg": {
     "declarations": true
@@ -22,7 +22,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-m-xiaozhicloud",
+    "start": "egg-scripts start --daemon --title=egg-server-m-m-educatio",
     "stop": "egg-scripts stop --title=egg-server-m-xiaozhicloud",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
